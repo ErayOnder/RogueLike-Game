@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class RuneSpawner : MonoBehaviour
 {
-    public GameObject hallManager;
+    public HallManager hallManagerScript;
     public GameObject runePrefab;
 
     private Tilemap objectsTilemap;
@@ -15,9 +15,9 @@ public class RuneSpawner : MonoBehaviour
         PlaceRune();
     }
 
-    private void ExtractObjectTilemap()
+    public void ExtractObjectTilemap()
     {
-        HallManager hallManagerScript = hallManager.GetComponent<HallManager>();
+        hallManagerScript = GameObject.FindGameObjectWithTag("HallManager").GetComponent<HallManager>();
         GameObject currentHall = hallManagerScript.GetCurrentHall();
         if (currentHall != null)
         {
@@ -28,7 +28,7 @@ public class RuneSpawner : MonoBehaviour
         }
     }
 
-    private void PlaceRune()
+    void PlaceRune()
     {
         if (objectsTilemap == null)
         {
@@ -38,12 +38,12 @@ public class RuneSpawner : MonoBehaviour
 
         List<Vector3Int> objectPositions = new();
         BoundsInt bounds = objectsTilemap.cellBounds;
-        
-        foreach (Vector3Int position in bounds.allPositionsWithin)
+
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
         {
-            if (objectsTilemap.HasTile(position))
+            if (objectsTilemap.HasTile(pos))
             {
-                objectPositions.Add(position);
+                objectPositions.Add(pos);
             }
         }
 

@@ -37,6 +37,8 @@ public class HallManager : MonoBehaviour
 
         currentHall = Instantiate(halls[hallIndex], Vector3.zero, Quaternion.identity);
         hero.transform.position = new Vector3(0, 0, 0);
+
+        FindFirstObjectByType<RuneSpawner>().ExtractObjectTilemap();
     }
 
     public GameObject GetCurrentHall()
