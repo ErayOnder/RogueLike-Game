@@ -39,4 +39,9 @@ public class HallManager : MonoBehaviour
         hero.transform.position = new Vector3(0, 0, 0);
     }
 
+    public GameObject GetCurrentHall()
+    {
+        return currentHall;
+    }
+
 }
