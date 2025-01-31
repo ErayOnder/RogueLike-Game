@@ -4,32 +4,16 @@ using UnityEngine.Tilemaps;
 
 public class RuneSpawner : MonoBehaviour
 {
-    public HallManager hallManagerScript;
+    public HallManager hallManager;
     public GameObject runePrefab;
 
     private Tilemap objectsTilemap;
+    private Vector3Int runePosition;
 
-    void Start()
+    public void PlaceRune()
     {
-        ExtractObjectTilemap();
-        PlaceRune();
-    }
+        objectsTilemap = hallManager.GetObjectTilemap();
 
-    public void ExtractObjectTilemap()
-    {
-        hallManagerScript = GameObject.FindGameObjectWithTag("HallManager").GetComponent<HallManager>();
-        GameObject currentHall = hallManagerScript.GetCurrentHall();
-        if (currentHall != null)
-        {
-            objectsTilemap = currentHall.transform.Find("Grid/Objects").GetComponent<Tilemap>();
-        } else
-        {
-            Debug.LogError("No current hall found, cannot extract object tilemap");
-        }
-    }
-
-    void PlaceRune()
-    {
         if (objectsTilemap == null)
         {
             Debug.LogError("No object tilemap found, cannot place rune");
@@ -37,8 +21,8 @@ public class RuneSpawner : MonoBehaviour
         }
 
         List<Vector3Int> objectPositions = new();
-        BoundsInt bounds = objectsTilemap.cellBounds;
 
+        BoundsInt bounds = objectsTilemap.cellBounds;
         foreach (Vector3Int pos in bounds.allPositionsWithin)
         {
             if (objectsTilemap.HasTile(pos))
@@ -49,13 +33,18 @@ public class RuneSpawner : MonoBehaviour
 
         if (objectPositions.Count > 0)
         {
-            Vector3Int randomPosition = objectPositions[Random.Range(0, objectPositions.Count)];
-            Vector3 worldPosition = objectsTilemap.GetCellCenterWorld(randomPosition);
+            runePosition = objectPositions[Random.Range(0, objectPositions.Count)];
+            Vector3 worldPosition = objectsTilemap.GetCellCenterWorld(runePosition);
             Instantiate(runePrefab, worldPosition, Quaternion.identity);
         } else
         {
             Debug.Log("No more positions to place runes, you win!");
         }
+    }
+
+    public Vector3Int GetRunePosition()
+    {
+        return runePosition;
     }
 
 }

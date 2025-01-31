@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class HallManager : MonoBehaviour
 {
@@ -38,12 +39,24 @@ public class HallManager : MonoBehaviour
         currentHall = Instantiate(halls[hallIndex], Vector3.zero, Quaternion.identity);
         hero.transform.position = new Vector3(0, 0, 0);
 
-        FindFirstObjectByType<RuneSpawner>().ExtractObjectTilemap();
+        FindFirstObjectByType<RuneSpawner>().PlaceRune();
     }
 
     public GameObject GetCurrentHall()
     {
         return currentHall;
+    }
+
+    public Tilemap GetObjectTilemap()
+    {
+        if (currentHall != null)
+        {
+            return currentHall.transform.Find("Grid/Objects").GetComponent<Tilemap>();
+        } else
+        {
+            Debug.LogError("No current hall found, cannot extract object tilemap");
+            return null;
+        }
     }
 
 }
