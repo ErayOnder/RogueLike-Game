@@ -7,7 +7,7 @@ public class DoorController : MonoBehaviour
 {
     public Tilemap tilemap;
     public Tile openDoorTile;
-    private Vector3Int doorPosition = new Vector3Int(1, -8, 0);
+    private Vector3Int doorPosition = new(1, -8, 0);
     private bool isLocked = true;
 
     [ContextMenu("Unlock Door")]
