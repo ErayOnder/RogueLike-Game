@@ -36,6 +36,7 @@ public class RuneSpawner : MonoBehaviour
             runePosition = objectPositions[Random.Range(0, objectPositions.Count)];
             Vector3 worldPosition = objectsTilemap.GetCellCenterWorld(runePosition);
             Instantiate(runePrefab, worldPosition, Quaternion.identity);
+            Debug.Log("Rune placed at " + runePosition);
         } else
         {
             Debug.Log("No more positions to place runes, you win!");

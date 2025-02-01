@@ -9,8 +9,6 @@ public class HallManager : MonoBehaviour
 
     public GameObject hero;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LoadHall(currentHallIndex);
@@ -55,6 +53,18 @@ public class HallManager : MonoBehaviour
         } else
         {
             Debug.LogError("No current hall found, cannot extract object tilemap");
+            return null;
+        }
+    }
+
+    public Tilemap GetDoorTilemap()
+    {
+        if (currentHall != null)
+        {
+            return currentHall.transform.Find("Grid/Door").GetComponent<Tilemap>();
+        } else
+        {
+            Debug.LogError("No current hall found, cannot extract door tilemap");
             return null;
         }
     }

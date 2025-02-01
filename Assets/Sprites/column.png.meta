@@ -117,19 +117,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 9
         width: 16
-        height: 44
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape:
-      - - {x: 8, y: 2}
-        - {x: -8, y: 2}
-        - {x: -8, y: -14}
-        - {x: 8, y: -14}
+      - - {x: 8, y: -1.5}
+        - {x: -8, y: -1.5}
+        - {x: -8, y: -17.5}
+        - {x: 8, y: -17.5}
       tessellationDetail: 0
       bones: []
       spriteID: 70d449c8cfee3fa60800000000000000

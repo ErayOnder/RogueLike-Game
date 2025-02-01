@@ -35,7 +35,7 @@ public class ClickableObjects : MonoBehaviour
     private bool IsHeroAdjacent(Vector3Int tilePosition)
     {
         Vector3Int heroTilePosition = objectsTilemap.WorldToCell(hero.transform.position);
-        return Vector3Int.Distance(tilePosition, heroTilePosition) <= 1;
+        return Vector3Int.Distance(tilePosition, heroTilePosition) <= 1.5;
     }
 
     private void HandleObjectClick(Vector3Int tilePosition)
@@ -43,7 +43,7 @@ public class ClickableObjects : MonoBehaviour
         if (tilePosition == FindFirstObjectByType<RuneSpawner>().GetRunePosition())
         {
             Debug.Log("Rune found, unlocking next hall");
-            hallManager.LoadNextHall();
+            FindFirstObjectByType<DoorController>().Unlock();
         } else
         {
             Debug.Log("No rune found at " + tilePosition);
