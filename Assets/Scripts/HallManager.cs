@@ -35,7 +35,7 @@ public class HallManager : MonoBehaviour
         }
 
         currentHall = Instantiate(halls[hallIndex], Vector3.zero, Quaternion.identity);
-        hero.transform.position = new Vector3(0, 0, 0);
+        hero.transform.position = new Vector3(2, -6, 0);
 
         FindFirstObjectByType<RuneSpawner>().PlaceRune();
     }
