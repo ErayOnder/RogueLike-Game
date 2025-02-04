@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Buildmodechest_0
+      name: Buildmodechest_body
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 80
         height: 117
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5040223, y: 0.47799784}
+      border: {x: 0, y: 40, z: 0, w: 45}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5721b613470a320a0800000000000000
-      internalID: -6907500982550457739
+      spriteID: 3f4040918a2504ac5b1f1c51ffde7046
+      internalID: 796026481
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 88fd724b95c104a008888d46392d4216
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Buildmodechest_body: 796026481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
